@@ -46,7 +46,6 @@ public class BController {
 		// mybatis 버전
 		ArrayList<BDto> list = iDao.list();
 		model.addAttribute("list", list);
-		
 		return "list";
 	}
 
@@ -76,10 +75,12 @@ public class BController {
 	public String content_view(HttpServletRequest request,
 			Model model) {
 		System.out.println("content_view() ctr");
-		model.addAttribute("request",request);
-		command=new BContentCommand();
-		command.execute(model);
-		
+//		model.addAttribute("request",request);
+//		command=new BContentCommand();
+//		command.execute(model);
+		String bid=request.getParameter("bid");
+		BDto dto = iDao.contentView(bid);
+		model.addAttribute("content_view",dto);
 		return "content_view";
 	}
 	@RequestMapping("/modify_view")
