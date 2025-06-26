@@ -9,4 +9,6 @@ import com.tech.prjm09.dto.BDto;
 @Mapper
 public interface IDao {
 	public ArrayList<BDto> list();
+	public void write(String bname, String btitle,
+			String bcontent);
 }
