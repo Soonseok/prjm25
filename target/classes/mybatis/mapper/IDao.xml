@@ -24,4 +24,10 @@
 		BDATE,BHIT,BGROUP,BSTEP,BINDENT 
 		FROM REPLYBOARD WHERE BID = #{param1}
 	</select>
+	
+	<select id="modifyView" ><!-- 사실 resultType을 적지 않아도 된다. -->
+		SELECT BID,BNAME,BTITLE,BCONTENT, 
+		BDATE,BHIT,BGROUP,BSTEP,BINDENT  
+		FROM REPLYBOARD WHERE BID = #{param1}
+	</select>
 </mapper>
