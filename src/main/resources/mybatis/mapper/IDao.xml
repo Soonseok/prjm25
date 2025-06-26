@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tech.prjm09.dao.IDao">
+	<select id="list" resultType="com.tech.prjm09.dto.BDto">
+		SELECT BID,BNAME,BTITLE,BCONTENT, 
+		BDATE,BHIT,BGROUP,BSTEP,BINDENT 
+		FROM REPLYBOARD 
+		ORDER BY BGROUP DESC, BSTEP ASC
+	</select>
+</mapper>
