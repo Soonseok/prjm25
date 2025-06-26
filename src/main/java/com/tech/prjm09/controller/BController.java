@@ -100,9 +100,14 @@ public class BController {
 	public String modify(HttpServletRequest request,
 			Model model) {
 		System.out.println("modify() ctr");
-		model.addAttribute("request",request);
-		command=new BModifyCommand();
-		command.execute(model);
+//		model.addAttribute("request",request);
+//		command=new BModifyCommand();
+//		command.execute(model);
+		String bid=request.getParameter("bid");
+		String bname=request.getParameter("bname");
+		String btitle=request.getParameter("btitle");
+		String bcontent=request.getParameter("bcontent");
+		iDao.modify(bid, bname, btitle, bcontent);
 		
 		return "redirect:list";
 	}
@@ -110,9 +115,12 @@ public class BController {
 	@RequestMapping("/reply_view")
 	public String reply_view(HttpServletRequest request, Model model) {
 		System.out.println("reply_view() ctr");
-		model.addAttribute("request",request);
-		command=new BReplyViewCommand();
-		command.execute(model);
+//		model.addAttribute("request",request);
+//		command=new BReplyViewCommand();
+//		command.execute(model);
+		String bid=request.getParameter("bid");
+		BDto dto = iDao.replyView(bid);
+		model.addAttribute("reply_view", dto);
 		
 		return "reply_view";
 	}

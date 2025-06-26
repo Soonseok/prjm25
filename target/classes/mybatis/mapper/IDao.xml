@@ -30,4 +30,13 @@
 		BDATE,BHIT,BGROUP,BSTEP,BINDENT  
 		FROM REPLYBOARD WHERE BID = #{param1}
 	</select>
+	
+	<!-- modify(String bid, String bname, String btitle, String bcontent) -->
+	<update id="modify">
+		UPDATE REPLYBOARD SET BNAME = #{param2}, BTITLE = #{param3}, BCONTENT = #{param4}, WHERE BID = #{param1}
+	</update>
+	
+	<select id="replyView">
+		SELECT BID,BNAME,BTITLE,BCONTENT,BDATE,BHIT,BGROUP,BSTEP,BINDENT FROM REPLYBOARD WHERE BID = #{param1}
+	</select>
 </mapper>
